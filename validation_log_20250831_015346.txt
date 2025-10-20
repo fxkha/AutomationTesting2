@@ -1,0 +1,23 @@
+Qlik-Athena Validation Log - 2025-08-31 01:53:46.051196
+==================================================
+[2025-08-31 01:53:46] Starting Qlik-Athena validation process
+[2025-08-31 01:53:46] Connecting to Athena...
+[2025-08-31 01:53:46] Executing Athena query: 
+                   SELECT customer_id, SUM(sales_amount) as total_sales, COUNT(*) as order_count
+  ...
+[2025-08-31 01:53:47] Error executing Athena query: Execution failed on sql: 
+                   SELECT customer_id, SUM(sales_amount) as total_sales, COUNT(*) as order_count
+                   FROM sales_data
+                   WHERE order_date >= CURRENT_DATE - INTERVAL '7' DAY
+                   GROUP BY customer_id
+                   ORDER BY total_sales DESC                    
+An error occurred (UnrecognizedClientException) when calling the StartQueryExecution operation: The security token included in the request is invalid.
+unable to rollback
+[2025-08-31 01:53:47] Validation process failed with error: Execution failed on sql: 
+                   SELECT customer_id, SUM(sales_amount) as total_sales, COUNT(*) as order_count
+                   FROM sales_data
+                   WHERE order_date >= CURRENT_DATE - INTERVAL '7' DAY
+                   GROUP BY customer_id
+                   ORDER BY total_sales DESC                    
+An error occurred (UnrecognizedClientException) when calling the StartQueryExecution operation: The security token included in the request is invalid.
+unable to rollback
