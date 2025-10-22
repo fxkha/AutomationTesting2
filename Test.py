@@ -22,7 +22,7 @@ username_input = driver.find_element(By.XPATH, "//input[@name='username']")
 password_input = driver.find_element(By.XPATH, "//input[@name='password']")
 
 username_input.send_keys("fayazkhan_14")  # replace with your username
-password_input.send_keys('Cigna@2022')  # replace with your password
+password_input.send_keys('#####')  # replace with your password
 password_input.send_keys(Keys.RETURN)
 
 # --- Wait for login to complete ---
