@@ -1,0 +1,6 @@
+behave
+playwright
+pandas
+boto3
+simple-salesforce
+pyyaml
