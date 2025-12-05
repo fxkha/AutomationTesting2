@@ -93,3 +93,21 @@ def test_delete_post_keywords():
     print("Response Text:", delete_response.text)
 
     assert delete_response.status_code in [200, 204]
+
+def test_post2_keywords():
+    key_url = "https://api.thecatapi.com/v1/votes"
+    auth_key = "live_VXvXbIFX5N91gctqYgG7qDfneVDlS96ODxNpmyZYUXnbsCKUhkBRLoUlZLi82wuR"
+    headers = {"x-api-key": auth_key}
+    payload = {
+        "image_id": "1001",  # must match what you want to assert
+        "sub_id": "2122",  # your custom user/session ID
+        "value": -21  # vote value (-1, 0, 1 usually)
+    }
+    response = requests.post(key_url, headers=headers, json=payload)
+    print("Status Code:", response.status_code)
+    print("Response JSON:", response.json())
+    assert response.status_code in [200, 201]
+    data = response.json()
+    assert data["image_id"] == "1001"
+    assert data["sub_id"] == "2122"
+    assert data["value"] == -21
